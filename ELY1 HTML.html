@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Venta de Electrodomésticos</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f6fa;
+    color:#222;
+}
+
+/* BARRA SUPERIOR */
+
+.top{
+    background:#075bd3;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-weight:bold;
+}
+
+/* ENCABEZADO */
+
+header{
+    background:white;
+    padding:22px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    box-shadow:0 2px 8px #ccc;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    color:#075bd3;
+}
+
+.logo span{
+    color:#ff7800;
+}
+
+.busqueda{
+    display:flex;
+    flex:1;
+    max-width:600px;
+}
+
+.busqueda input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:8px 0 0 8px;
+    font-size:16px;
+}
+
+.busqueda button{
+    background:#ff7800;
+    color:white;
+    border:none;
+    padding:0 22px;
+    border-radius:0 8px 8px 0;
+    cursor:pointer;
+}
+
+.carrito{
+    background:#075bd3;
+    color:white;
+    padding:14px 20px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* MENU */
+
+nav{
+    background:#063d91;
+    text-align:center;
+    padding:16px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 16px;
+    font-weight:bold;
+}
+
+/* PORTADA */
+
+.hero{
+    min-height:420px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    color:white;
+
+    background:
+    linear-gradient(rgba(0,45,110,.78),rgba(0,45,110,.78)),
+    url("https://loremflickr.com/1600/700/kitchen,appliances?lock=100")
+    center/cover;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:21px;
+    margin-bottom:30px;
+}
+
+.boton{
+    display:inline-block;
+    background:#ff7800;
+    color:white;
+    padding:15px 30px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* CONTENEDOR */
+
+.contenedor{
+    width:92%;
+    max-width:1450px;
+    margin:auto;
+}
+
+/* BENEFICIOS */
+
+.beneficios{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin:45px 0;
+}
+
+.beneficio{
+    background:white;
+    padding:28px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 3px 12px #ddd;
+}
+
+.beneficio h3{
+    color:#075bd3;
+    margin-bottom:10px;
+}
+
+/* TITULOS */
+
+.titulo{
+    text-align:center;
+    margin:55px 0 30px;
+}
+
+.titulo h2{
+    color:#063d91;
+    font-size:34px;
+}
+
+.titulo p{
+    color:#666;
+    margin-top:10px;
+}
+
+/* CATEGORIAS */
+
+.categorias{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.categoria{
+    background:white;
+    padding:25px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 3px 12px #ddd;
+}
+
+.categoria h3{
+    color:#063d91;
+}
+
+/* SECCIONES */
+
+.seccion{
+    margin:70px 0;
+    scroll-margin-top:100px;
+}
+
+.seccion h2{
+    color:#063d91;
+    font-size:32px;
+    border-left:7px solid #ff7800;
+    padding-left:15px;
+    margin-bottom:30px;
+}
+
+/* PRODUCTOS */
+
+.productos{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+}
+
+.producto{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 4px 15px #d4d4d4;
+    transition:.3s;
+}
+
+.producto:hover{
+    transform:translateY(-6px);
+}
+
+/* IMAGEN GRANDE */
+
+.producto-img{
+    width:100%;
+    height:330px;
+
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+}
+
+.producto-img img{
+    width:100%;
+    height:290px;
+
+    object-fit:contain;
+
+    display:block;
+}
+
+/* INFORMACION */
+
+.producto-info{
+    padding:22px;
+}
+
+.producto-info h3{
+    color:#063d91;
+    font-size:21px;
+    margin-bottom:10px;
+}
+
+.descripcion{
+    color:#666;
+    min-height:40px;
+    line-height:1.4;
+}
+
+.precio{
+    color:#ff7800;
+    font-size:25px;
+    font-weight:bold;
+    margin:16px 0;
+}
+
+.btn-carrito{
+    width:100%;
+    padding:14px;
+
+    background:#075bd3;
+    color:white;
+
+    border:none;
+    border-radius:8px;
+
+    font-size:16px;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+.btn-carrito:hover{
+    background:#063d91;
+}
+
+/* CONTACTO */
+
+.contacto{
+    background:#063d91;
+    color:white;
+    text-align:center;
+    padding:55px 20px;
+}
+
+.contacto h2{
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.contacto p{
+    margin:10px;
+}
+
+/* PIE */
+
+footer{
+    background:#041f4d;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .productos{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .categorias{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    header{
+        flex-direction:column;
+    }
+
+    .busqueda{
+        width:100%;
+    }
+
+    .beneficios{
+        grid-template-columns:1fr;
+    }
+
+    .productos{
+        grid-template-columns:1fr;
+    }
+
+    .categorias{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:35px;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:7px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BARRA -->
+
+<div class="top">
+    OFERTAS ESPECIALES EN ELECTRODOMÉSTICOS
+</div>
+
+
+<!-- ENCABEZADO -->
+
+<header>
+
+    <div class="logo">
+        Electro<span>Hogar</span>
+    </div>
+
+    <div class="busqueda">
+
+        <input
+        type="text"
+        id="buscar"
+        placeholder="Buscar electrodoméstico..."
+        >
+
+        <button onclick="buscarProducto()">
+            Buscar
+        </button>
+
+    </div>
+
+    <div class="carrito">
+        Carrito:
+        <span id="cantidad">0</span>
+    </div>
+
+</header>
+
+
+<!-- MENU -->
+
+<nav>
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#categorias">Categorías</a>
+
+    <a href="#productos">Productos</a>
+
+    <a href="#contacto">Contacto</a>
+
+</nav>
+
+
+<!-- PORTADA -->
+
+<section class="hero" id="inicio">
+
+    <div>
+
+        <h1>
+            Venta de Electrodomésticos
+        </h1>
+
+        <p>
+            Productos para facilitar y mejorar tu hogar.
+        </p>
+
+        <a href="#productos" class="boton">
+            Ver productos
+        </a>
+
+    </div>
+
+</section>
+
+
+<div class="contenedor">
+
+
+<!-- BENEFICIOS -->
+
+<section class="beneficios">
+
+    <div class="beneficio">
+
+        <h3>
+            Productos de calidad
+        </h3>
+
+        <p>
+            Electrodomésticos para diferentes necesidades del hogar.
+        </p>
+
+    </div>
+
+
+    <div class="beneficio">
+
+        <h3>
+            Precios en Bs.
+        </h3>
+
+        <p>
+            Todos los precios están expresados en bolivianos.
+        </p>
+
+    </div>
+
+
+    <div class="beneficio">
+
+        <h3>
+            Compra sencilla
+        </h3>
+
+        <p>
+            Selecciona tus productos y agrégalos al carrito.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CATEGORIAS -->
+
+<section id="categorias">
+
+<div class="titulo">
+
+    <h2>
+        Categorías
+    </h2>
+
+    <p>
+        Elige el tipo de electrodoméstico que necesitas.
+    </p>
+
+</div>
+
+
+<div class="categorias">
+
+    <div class="categoria">
+        <h3>Heladeras</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Cocinas</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Lavadoras</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Microondas</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Licuadoras</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Aspiradoras</h3>
+    </div>
+
+    <div class="categoria">
+        <h3>Ventiladores</h3>
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTOS -->
+
+<section id="productos">
+
+<div class="titulo">
+
+    <h2>
+        Nuestros productos
+    </h2>
+
+    <p>
+        Conoce nuestra selección de electrodomésticos.
+    </p>
+
+</div>
+
+
+<!-- ================= HELADERAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Heladeras
+</h2>
+
+<div class="productos">
+
+
+<!-- HELADERA 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://s3-ap-southeast-1.amazonaws.com/urbanclap-prod/images/supply/customer-app-supply/1746111690566-e4f9a8.jpeg"
+alt="Heladera plateada"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Heladera Plateada
+</h3>
+
+<p class="descripcion">
+    Heladera de una puerta con diseño moderno.
+</p>
+
+<p class="precio">
+    Bs. 2.799
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- HELADERA 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/refrigerator?lock=201"
+alt="Heladera moderna"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Heladera Moderna
+</h3>
+
+<p class="descripcion">
+    Modelo amplio para conservar tus alimentos.
+</p>
+
+<p class="precio">
+    Bs. 3.499
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- HELADERA 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/fridge?lock=202"
+alt="Heladera familiar"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Heladera Familiar
+</h3>
+
+<p class="descripcion">
+    Mayor capacidad para el hogar.
+</p>
+
+<p class="precio">
+    Bs. 4.199
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= COCINAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Cocinas
+</h2>
+
+<div class="productos">
+
+
+<!-- COCINA 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://dukaan.b-cdn.net/700x700/webp/6930501/29e8a61d-3d15-4d0d-a28a-4268714104e8/szow-d06b1715-6525-498f-bfcb-7e12dc33a509.jpg"
+alt="Cocina de gas"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Cocina de Gas
+</h3>
+
+<p class="descripcion">
+    Cocina práctica para preparar tus comidas.
+</p>
+
+<p class="precio">
+    Bs. 1.499
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- COCINA 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/gas,stove?lock=302"
+alt="Cocina doméstica"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Cocina Doméstica
+</h3>
+
+<p class="descripcion">
+    Diseño funcional para la cocina del hogar.
+</p>
+
+<p class="precio">
+    Bs. 1.799
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- COCINA 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/kitchen,stove?lock=303"
+alt="Cocina moderna"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Cocina Moderna
+</h3>
+
+<p class="descripcion">
+    Modelo elegante y práctico.
+</p>
+
+<p class="precio">
+    Bs. 2.199
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LAVADORAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Lavadoras
+</h2>
+
+<div class="productos">
+
+
+<!-- LAVADORA 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://www.gettyimages.com/"
+alt="Lavadora frontal"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Lavadora Frontal
+</h3>
+
+<p class="descripcion">
+    Lavadora automática de carga frontal.
+</p>
+
+<p class="precio">
+    Bs. 2.699
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- LAVADORA 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/washing,machine?lock=402"
+alt="Lavadora automática"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Lavadora Automática
+</h3>
+
+<p class="descripcion">
+    Diseño moderno para el lavado diario.
+</p>
+
+<p class="precio">
+    Bs. 2.999
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- LAVADORA 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/laundry,washing-machine?lock=403"
+alt="Lavadora familiar"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Lavadora Familiar
+</h3>
+
+<p class="descripcion">
+    Mayor capacidad para la familia.
+</p>
+
+<p class="precio">
+    Bs. 3.499
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= MICROONDAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Microondas
+</h2>
+
+<div class="productos">
+
+
+<!-- MICROONDAS 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://www.gettyimages.com/"
+alt="Microondas blanco"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Microondas Blanco
+</h3>
+
+<p class="descripcion">
+    Modelo compacto para calentar alimentos.
+</p>
+
+<p class="precio">
+    Bs. 699
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- MICROONDAS 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/microwave?lock=502"
+alt="Microondas digital"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Microondas Digital
+</h3>
+
+<p class="descripcion">
+    Panel digital y diseño moderno.
+</p>
+
+<p class="precio">
+    Bs. 899
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- MICROONDAS 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/microwave-oven?lock=503"
+alt="Microondas moderno"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Microondas Moderno
+</h3>
+
+<p class="descripcion">
+    Mayor capacidad para el hogar.
+</p>
+
+<p class="precio">
+    Bs. 1.099
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= LICUADORAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Licuadoras
+</h2>
+
+<div class="productos">
+
+
+<!-- LICUADORA 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://www.gettyimages.com/"
+alt="Licuadora blanca"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Licuadora Blanca
+</h3>
+
+<p class="descripcion">
+    Licuadora práctica para preparar bebidas.
+</p>
+
+<p class="precio">
+    Bs. 399
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- LICUADORA 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/blender,kitchen?lock=602"
+alt="Licuadora moderna"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Licuadora Moderna
+</h3>
+
+<p class="descripcion">
+    Motor potente y diseño moderno.
+</p>
+
+<p class="precio">
+    Bs. 499
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- LICUADORA 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/electric,blender?lock=603"
+alt="Licuadora familiar"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Licuadora Familiar
+</h3>
+
+<p class="descripcion">
+    Vaso de gran capacidad para el hogar.
+</p>
+
+<p class="precio">
+    Bs. 699
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= ASPIRADORAS ================= -->
+
+<section class="seccion">
+
+<h2>
+    Aspiradoras
+</h2>
+
+<div class="productos">
+
+
+<!-- ASPIRADORA 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://www.gettyimages.com/"
+alt="Aspiradora roja"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Aspiradora Doméstica
+</h3>
+
+<p class="descripcion">
+    Ideal para la limpieza del hogar.
+</p>
+
+<p class="precio">
+    Bs. 599
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- ASPIRADORA 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/vacuum,cleaner?lock=702"
+alt="Aspiradora moderna"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Aspiradora Moderna
+</h3>
+
+<p class="descripcion">
+    Diseño práctico para diferentes espacios.
+</p>
+
+<p class="precio">
+    Bs. 699
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- ASPIRADORA 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/household,vacuum?lock=703"
+alt="Aspiradora potente"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Aspiradora Potente
+</h3>
+
+<p class="descripcion">
+    Mayor potencia para la limpieza.
+</p>
+
+<p class="precio">
+    Bs. 899
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= VENTILADORES ================= -->
+
+<section class="seccion">
+
+<h2>
+    Ventiladores
+</h2>
+
+<div class="productos">
+
+
+<!-- VENTILADOR 1 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://www.gettyimages.com/"
+alt="Ventilador blanco"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Ventilador Blanco
+</h3>
+
+<p class="descripcion">
+    Ventilador para mantener fresco el ambiente.
+</p>
+
+<p class="precio">
+    Bs. 299
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- VENTILADOR 2 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/electric,fan?lock=802"
+alt="Ventilador de pie"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Ventilador de Pie
+</h3>
+
+<p class="descripcion">
+    Altura regulable y diseño práctico.
+</p>
+
+<p class="precio">
+    Bs. 399
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+
+<!-- VENTILADOR 3 -->
+
+<div class="producto">
+
+<div class="producto-img">
+
+<img
+src="https://loremflickr.com/700/600/pedestal,fan?lock=803"
+alt="Ventilador moderno"
+>
+
+</div>
+
+<div class="producto-info">
+
+<h3>
+    Ventilador Moderno
+</h3>
+
+<p class="descripcion">
+    Buena circulación de aire para el hogar.
+</p>
+
+<p class="precio">
+    Bs. 499
+</p>
+
+<button class="btn-carrito" onclick="agregar()">
+    Agregar al carrito
+</button>
+
+</div>
+</div>
+
+</div>
+
+</section>
+
+</section>
+
+</div>
+
+
+<!-- CONTACTO -->
+
+<section class="contacto" id="contacto">
+
+<h2>
+    Contacto
+</h2>
+
+<p>
+    Venta de Electrodomésticos
+</p>
+
+<p>
+    Teléfono: 70000000
+</p>
+
+<p>
+    Correo: ventas@electrohogar.com
+</p>
+
+<p>
+    Bolivia
+</p>
+
+</section>
+
+
+<!-- PIE -->
+
+<footer>
+
+<p>
+    © 2026 Venta de Electrodomésticos - Proyecto de Página Web
+</p>
+
+</footer>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+let cantidad = 0;
+
+
+function agregar(){
+
+    cantidad++;
+
+    document.getElementById("cantidad").textContent = cantidad;
+
+    alert("Producto agregado al carrito");
+
+}
+
+
+function buscarProducto(){
+
+    let texto =
+    document.getElementById("buscar").value.toLowerCase();
+
+    let productos =
+    document.querySelectorAll(".producto");
+
+    productos.forEach(function(producto){
+
+        let nombre =
+        producto.querySelector("h3")
+        .textContent
+        .toLowerCase();
+
+        if(nombre.includes(texto)){
+
+            producto.style.display="block";
+
+        }else{
+
+            producto.style.display="none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

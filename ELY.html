@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Venta de Electrodomésticos</title>
+
+<style>
+
+/* ==============================
+   ESTILOS GENERALES
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f7fb;
+    color: #172b4d;
+}
+
+
+/* ==============================
+   ENCABEZADO
+================================ */
+
+header {
+    background: #073b75;
+    color: white;
+    padding: 22px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.logo span {
+    color: #ff8a00;
+}
+
+.buscar {
+    display: flex;
+    width: 40%;
+}
+
+.buscar input {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 7px 0 0 7px;
+    font-size: 15px;
+}
+
+.buscar button {
+    padding: 13px 18px;
+    border: none;
+    background: #ff8a00;
+    color: white;
+    border-radius: 0 7px 7px 0;
+    cursor: pointer;
+}
+
+
+/* ==============================
+   MENÚ
+================================ */
+
+nav {
+    background: #0b65b1;
+    padding: 15px 3%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px 8px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #e53935;
+}
+
+
+/* ==============================
+   INICIO
+================================ */
+
+.inicio {
+    min-height: 430px;
+    padding: 80px 8%;
+    background: 
+    linear-gradient
+    (
+             rgba(0,40,80,.75), 
+             rgba(0,40,80,.75),
+        ), 
+        
+        url("fondo 2.jpeg");
+       
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #172b4d;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.inicio h1 {
+    font-size: 45px;
+    max-width: 600px;
+    margin-bottom: 15px;
+}
+
+.inicio p {
+    font-size: 20px;
+    max-width: 600px;
+    margin-bottom: 25px;
+}
+
+.boton-principal {
+    background: #ff8a00;
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.boton-principal:hover {
+    background: #e87500;
+}
+
+
+/* ==============================
+   BENEFICIOS
+================================ */
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 30px 5%;
+}
+
+.beneficio {
+    background: white;
+    padding: 22px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.08);
+}
+
+.beneficio h3 {
+    margin: 8px 0;
+}
+
+
+/* ==============================
+   SECCIONES
+================================ */
+
+.seccion {
+    padding: 55px 5%;
+}
+
+.titulo-seccion {
+    text-align: center;
+    color: #073b75;
+    font-size: 32px;
+    margin-bottom: 35px;
+}
+
+
+/* ==============================
+   PRODUCTOS
+================================ */
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.producto {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0,0,0,.10);
+    transition: .3s;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 7px 20px rgba(0,0,0,.15);
+}
+
+.producto img {
+    width: 100%;
+    height: 190px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.producto h3 {
+    color: #073b75;
+    margin-bottom: 8px;
+}
+
+.producto p {
+    margin: 7px 0;
+}
+
+.precio {
+    color: #087f23;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.boton {
+    background: #0878d1;
+    color: white;
+    border: none;
+    padding: 11px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.boton:hover {
+    background: #05599c;
+}
+
+
+/* ==============================
+   OFERTAS
+================================ */
+
+.ofertas {
+    background: #fff4e8;
+}
+
+.oferta {
+    border: 2px solid #ff8a00;
+}
+
+.oferta .antes {
+    color: #777;
+}
+
+.oferta .antes del {
+    color: #999;
+}
+
+.oferta .precio {
+    color: #e53935;
+}
+
+.etiqueta {
+    background: #e53935;
+    color: white;
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+/* ==============================
+   CARRITO
+================================ */
+
+.carrito {
+    background: white;
+    margin: 40px 5%;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px rgba(0,0,0,.12);
+}
+
+.carrito h2 {
+    color: #073b75;
+    margin-bottom: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+    gap: 10px;
+}
+
+.eliminar {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.total {
+    text-align: right;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #073b75;
+}
+
+
+/* ==============================
+   CONTACTO
+================================ */
+
+.contacto {
+    background: #eaf3fb;
+    text-align: center;
+}
+
+.contacto p {
+    margin: 12px;
+    font-size: 17px;
+}
+
+
+/* ==============================
+   PIE DE PÁGINA
+================================ */
+
+footer {
+    background: #073b75;
+    color: white;
+    padding: 35px 5%;
+    text-align: center;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 8px;
+}
+
+
+/* ==============================
+   RESPONSIVE
+================================ */
+
+@media(max-width: 900px) {
+
+    .productos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .beneficios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header {
+        flex-direction: column;
+    }
+
+    .buscar {
+        width: 100%;
+    }
+}
+
+@media(max-width: 600px) {
+
+    .productos {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficios {
+        grid-template-columns: 1fr;
+    }
+
+    .inicio h1 {
+        font-size: 32px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     ENCABEZADO
+===================================== -->
+
+<header>
+ <div class="logo">
+             <img src="logo.jpeg"
+             style="width:120px; height:120px;
+             object-fit:contain;">
+        </div>
+
+    <div class="logo">
+        🛒 Venta de <span>Electrodomésticos</span>
+    </div>
+
+    <div class="buscar">
+
+        <input
+            type="text"
+            id="busqueda"
+            placeholder="Buscar productos..."
+            onkeyup="buscarProducto()">
+
+        <button>🔍</button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================
+     MENÚ
+===================================== -->
+
+<nav>
+
+    <a href="#inicio">Inicio</a>
+
+    <a href="#heladeras">Heladeras</a>
+
+    <a href="#cocinas">Cocinas</a>
+
+    <a href="#lavadoras">Lavadoras</a>
+
+    <a href="#microondas">Microondas</a>
+
+    <a href="#licuadoras">Licuadoras</a>
+
+    <a href="#batidoras">Batidoras</a>
+
+    <a href="#hervidores">Hervidores</a>
+
+    <a href="#aspiradoras">Aspiradoras</a>
+
+    <a href="#ventiladores">Ventiladores</a>
+
+    <a href="#ofertas">🏷️ Ofertas</a>
+
+    <a href="#carrito">🛒 Carrito</a>
+
+</nav>
+
+
+<!-- =====================================
+     INICIO
+===================================== -->
+
+<section class="inicio" id="inicio">
+
+    <h1>
+        Todo para tu hogar
+        en un solo lugar
+    </h1>
+
+    <p>
+        Encuentra electrodomésticos de calidad
+        para hacer tu hogar más cómodo.
+    </p>
+
+    <button
+        class="boton-principal"
+        onclick="location.href='#heladeras'">
+
+        Ver productos →
+
+    </button>
+
+</section>
+
+
+<!-- =====================================
+     BENEFICIOS
+===================================== -->
+
+<section class="beneficios">
+
+    <div class="beneficio">
+
+        <h2>🚚</h2>
+
+        <h3>Envíos</h3>
+
+        <p>Envíos a todo Bolivia</p>
+
+    </div>
+
+
+    <div class="beneficio">
+
+        <h2>🛡️</h2>
+
+        <h3>Garantía</h3>
+
+        <p>Productos con garantía</p>
+
+    </div>
+
+
+    <div class="beneficio">
+
+        <h2>💳</h2>
+
+        <h3>Pago seguro</h3>
+
+        <p>Compra de forma segura</p>
+
+    </div>
+
+
+    <div class="beneficio">
+
+        <h2>📞</h2>
+
+        <h3>Atención</h3>
+
+        <p>Atención personalizada</p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     HELADERAS
+===================================== -->
+
+<section class="seccion" id="heladeras">
+
+<h2 class="titulo-seccion">
+    🧊 Heladeras
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="heladera1.jpeg">
+
+<h3>Heladera No Frost</h3>
+
+<p>300 litros</p>
+
+<p class="precio">Bs. 3.500</p>
+
+<button class="boton"
+onclick="agregarCarrito('Heladera No Frost',3500)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="heladera 3.jpeg">
+
+<h3>Heladera brasiler g6 </h3>
+
+<p>200 litros</p>
+
+<p class="precio">Bs. 4.800</p>
+
+<button class="boton"
+onclick="agregarCarrito('Heladera ',4200)">
+Agregar al carrito
+</button>
+
+</div>
+<div class="producto">
+
+<img src="heladera2.jpeg">
+
+<h3>Heladera Familiar</h3>
+
+<p>450 litros</p>
+
+<p class="precio">Bs. 5.800</p>
+
+<button class="boton"
+onclick="agregarCarrito('Heladera ',4200)">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+
+<img src="heladera4.jpeg">
+
+<h3>heladera center5g</h3>
+
+<p>400 litros</p>
+
+<p class="precio">Bs. 4.000</p>
+
+<button class="boton"
+onclick="agregarCarrito('Heladera center',4200)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     COCINAS
+===================================== -->
+
+<section class="seccion" id="cocinas">
+
+<h2 class="titulo-seccion">
+    🍳 Cocinas
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="cosina de 2.jpeg">
+
+<h3>Cocina 2 Hornallas</h3>
+
+<p>Cocina a gas</p>
+
+<p class="precio">Bs. 2.300</p>
+
+<button class="boton"
+onclick="agregarCarrito('Cocina 4 Hornallas',2300)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="cosina de 5.jpeg">
+
+<h3>Cocina Familiar</h3>
+
+<p>Cocina de gran capacidad</p>
+
+<p class="precio">Bs. 3.100</p>
+
+<button class="boton"
+onclick="agregarCarrito('Cocina Familiar',3100)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="cosina1.jpeg">
+
+<h3>Cocina 4hornallas</h3>
+
+<p>Cocina rapida</p>
+
+<p class="precio">Bs. 3.000</p>
+
+<button class="boton"
+onclick="agregarCarrito('Cocina ',3000)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="cosina2.jpeg">
+
+<h3>Cocina a gas domiciliar</h3>
+
+<p>Cocina electrica</p>
+
+<p class="precio">Bs. 3.400</p>
+
+<button class="boton"
+onclick="agregarCarrito('Cocina',3400)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     LAVADORAS
+===================================== -->
+
+<section class="seccion" id="lavadoras">
+
+<h2 class="titulo-seccion">
+    🧺 Lavadoras
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="lavadora.jpeg">
+
+<h3>Lavadora 10 kg</h3>
+
+<p>Lavadora automática</p>
+
+<p class="precio">Bs. 2.800</p>
+
+<button class="boton"
+onclick="agregarCarrito('Lavadora 10 kg',2800)">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+
+<img src="lavadora1.jpeg">
+
+<h3>Lavadora 19 kg</h3>
+
+<p>Lavadora Eléctrica</p>
+
+<p class="precio">Bs. 3.500</p>
+
+<button class="boton"
+onclick="agregarCarrito('Lavadora 19 kg',3500)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+<div class="producto">
+
+<img src="lavadora2.jpeg">
+
+<h3>Lavadora 11kg</h3>
+
+<p>Lavadora electro</p>
+
+<p class="precio">Bs. 3.000</p>
+
+<button class="boton"
+onclick="agregarCarrito('Lavadora 11 kg',3000)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="lavadora3.jpeg">
+
+<h3>Lavadora 12 kg</h3>
+
+<p>Lavadora rapida</p>
+
+<p class="precio">Bs. 4.800</p>
+
+<button class="boton"
+onclick="agregarCarrito('Lavadora 12 kg',4800)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     MICROONDAS
+===================================== -->
+
+<section class="seccion" id="microondas">
+
+<h2 class="titulo-seccion">
+    📡 Microondas
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="microondas1.jpeg">
+
+<h3>Microondas 20 L</h3>
+
+<p>Microondas digital</p>
+
+<p class="precio">Bs. 1100</p>
+
+<button class="boton"
+onclick="agregarCarrito('Microondas 20 L',1100)">
+Agregar al carrito
+</button>
+
+</div>
+<div class="producto">
+
+<img src="microondas2.jpeg">
+
+<h3>Microondas 24 L</h3>
+
+<p>Microondas electrica</p>
+
+<p class="precio">Bs. 1300</p>
+
+<button class="boton"
+onclick="agregarCarrito('Microondas 25 L',1300)">
+Agregar al carrito
+</button>
+
+</div>
+<div class="producto">
+
+<img src="microonda3.jpeg">
+
+<h3>Microondas 26L</h3>
+
+<p>Microondas rapida cl</p>
+
+<p class="precio">Bs. 1500</p>
+
+<button class="boton"
+onclick="agregarCarrito('Microondas 26 L',1500)">
+Agregar al carrito
+</button>
+
+</div>
+<div class="producto">
+
+<img src="microondas 4.jpeg">
+
+<h3>Microondas 30 L</h3>
+
+<p>Microondas digital</p>
+
+<p class="precio">Bs. 2000</p>
+
+<button class="boton"
+onclick="agregarCarrito('Microondas 30 L',2000)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     LICUADORAS
+===================================== -->
+
+<section class="seccion" id="licuadoras">
+
+<h2 class="titulo-seccion">
+    🥤 Licuadoras
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="licuadora.jpeg">
+
+<h3>Licuadora 1.5 L</h3>
+
+<p>Uso doméstico</p>
+
+<p class="precio">Bs. 350</p>
+
+<button class="boton"
+onclick="agregarCarrito('Licuadora 1.5 L',350)">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+<img src="licuadora1.jpeg">
+
+<h3>Licuadora oster 2 L</h3>
+
+<p>Uso domestico rapido</p>
+
+<p class="precio">Bs. 450</p>
+
+<button class="boton"
+onclick="agregarCarrito('Licuadora 1.5 L',450)">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+<img src="licuadora2.jpeg">
+
+<h3>Licuadora philips 1.5 L</h3>
+
+<p>Uso doméstico</p>
+
+<p class="precio">Bs. 400</p>
+
+<button class="boton"
+onclick="agregarCarrito('Licuadora 1.5 L',400)">
+Agregar al carrito
+</button>
+
+</div>
+
+<div class="producto">
+<img src="licuadora3.jpeg">
+
+<h3>Licuadora bosch 2 L</h3>
+
+<p>reforzado </p>
+
+<p class="precio">Bs. 500</p>
+
+<button class="boton"
+onclick="agregarCarrito('Licuadora 2 L',500)">
+Agregar al carrito
+</button>
+
+</div>                                                                                    
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     BATIDORAS
+===================================== -->
+
+<section class="seccion" id="batidoras">
+
+<h2 class="titulo-seccion">
+    🧁 Batidoras
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="batidora.jpeg">
+
+<h3>Batidora bosch</h3>
+
+<p>Para preparar alimentos</p>
+
+<p class="precio">Bs. 450</p>
+
+<button class="boton"
+onclick="agregarCarrito('Batidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="vatidora1.jpeg">
+
+<h3>Batidora oster </h3>
+
+<p>Para preparar cremas</p>
+
+<p class="precio">Bs. 350</p>
+
+<button class="boton"
+onclick="agregarCarrito('Batidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+<div class="producto">
+
+<img src="vatidora2.jpeg">
+
+<h3>Batidora multicenter</h3>
+
+<p>rapida </p>
+
+<p class="precio">Bs. 400</p>
+
+<button class="boton"
+onclick="agregarCarrito('Batidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="vatidora3.jpeg">
+
+<h3>Batidora tauros</h3>
+
+<p>rapida </p>
+
+<p class="precio">Bs. 450</p>
+
+<button class="boton"
+onclick="agregarCarrito('Batidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div
+
+
+
+</div>
+
+</section>
+
+
+
+
+<!-- =====================================
+     HERVIDORES
+===================================== -->
+
+<section class="seccion" id="hervidores">
+
+<h2 class="titulo-seccion">
+    🔥 Hervidores Eléctricos
+</h2>
+
+<div class="productos">
+
+<div class="producto">
+
+<img src="hervidor.jpeg">
+
+<h3>hervidor dismac</h3>
+
+<p>rapida </p>
+
+<p class="precio">Bs. 400</p>
+
+<button class="boton"
+onclick="agregarCarrito('hervidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div
+
+<div class="productos">
+
+<div class="producto">
+
+<img src="hervidor1.jpeg">
+
+<h3>hervidor bosch</h3>
+
+<p>electrica </p>
+
+<p class="precio">Bs. 550</p>
+
+<button class="boton"
+onclick="agregarCarrito('hervidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div
+<div class="productos">
+
+<div class="producto">
+
+<img src="hervidor2.jpeg">
+
+<h3>hervidor ufesa</h3>
+
+<p> hervidor electrica </p>
+
+<p class="precio">Bs. 500</p>
+
+<button class="boton"
+onclick="agregarCarrito('hervidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div
+
+<div class="productos">
+
+<div class="producto">
+
+<img src="hervidor3.jpeg">
+
+<h3>hervidor oster</h3>
+
+<p>rapida electrica </p>
+
+<p class="precio">Bs. 400</p>
+
+<button class="boton"
+onclick="agregarCarrito('hervidora Eléctrica',450)">
+Agregar al carrito
+</button>
+
+</div
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     ASPIRADORAS
+===================================== -->
+
+<section class="seccion" id="aspiradoras">
+
+<h2 class="titulo-seccion">
+    🧹 Aspiradoras
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="aspiradora1.jpeg">
+
+<h3>Aspiradora dyson</h3>
+
+<p>limpia hogar</p>
+
+<p class="precio">Bs. 650</p>
+
+<button class="boton"
+onclick="agregarCarrito('Aspiradora Doméstica',650)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+<div class="producto">
+
+<img src="aspiradora2.jpeg">
+
+<h3>Aspiradora LG</h3>
+
+<p>limpieza</p>
+
+<p class="precio">Bs. 550</p>
+
+<button class="boton"
+onclick="agregarCarrito('Aspiradora Doméstica',650)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+<div class="producto">
+
+<img src="aspiradora3.jpeg">
+
+<h3>Aspiradora electrolux</h3>
+
+<p>Para limpieza del hogar</p>
+
+<p class="precio">Bs. 600</p>
+
+<button class="boton"
+onclick="agregarCarrito('Aspiradora Doméstica',650)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     VENTILADORES
+===================================== -->
+
+<section class="seccion" id="ventiladores">
+
+<h2 class="titulo-seccion">
+    🌀 Ventiladores
+</h2>
+
+<div class="productos">
+
+
+<div class="producto">
+
+<img src="ventiladora.jpeg">
+
+<h3>Ventilador oster</h3>
+
+<p>Varias velocidades</p>
+
+<p class="precio">Bs. 350</p>
+
+<button class="boton"
+onclick="agregarCarrito('Ventilador de Pie',350)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="ventilador1.jpeg">
+
+<h3>Ventilador imaco</h3>
+
+<p>Varias velocidades</p>
+
+<p class="precio">Bs. 450</p>
+
+<button class="boton"
+onclick="agregarCarrito('Ventilador ',450)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="ventilador2.jpeg">
+
+<h3>Ventilador dyson</h3>
+
+<p>Varias velocidades</p>
+
+<p class="precio">Bs. 500</p>
+
+<button class="boton"
+onclick="agregarCarrito('Ventilador ',500)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+<div class="producto">
+
+<img src="ventilador3.jpeg">
+
+<h3>Ventilador honeywell</h3>
+
+<p>Varias velocidades</p>
+
+<p class="precio">Bs. 550</p>
+
+<button class="boton"
+onclick="agregarCarrito('Ventilador de Pie',400)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     OFERTAS
+===================================== -->
+
+<section class="seccion ofertas" id="ofertas">
+
+<h2 class="titulo-seccion">
+    🏷️ Ofertas Especiales
+</h2>
+
+<div class="productos">
+
+
+<!-- OFERTA 1 -->
+
+<div class="producto oferta">
+
+<span class="etiqueta">
+    ¡OFERTA!
+</span>
+
+<img src="microonda3.jpeg">
+
+<h3>Microondas 26 L</h3>
+
+<p class="antes">
+    Antes: <del>Bs. 1500</del>
+</p>
+
+<p class="precio">
+    Bs. 1350
+</p>
+
+<button class="boton"
+onclick="agregarCarrito('Microondas en oferta',1350)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+<!-- OFERTA 3 -->
+
+<div class="producto oferta">
+
+<span class="etiqueta">
+    ¡OFERTA!
+</span>
+
+<img src="licuadora.jpeg">
+
+<h3>Licuadora 1.5 L</h3>
+
+<p class="antes">
+    Antes: <del>Bs. 350</del>
+</p>
+
+<p class="precio">
+    Bs. 300
+</p>
+
+<button class="boton"
+onclick="agregarCarrito('Licuadora en oferta',300)">
+Agregar al carrito
+</button>
+
+</div>
+
+
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================
+     CARRITO
+===================================== -->
+
+<section class="carrito" id="carrito">
+
+<h2>🛒 Carrito de Compra</h2>
+
+<div id="listaCarrito">
+
+<p>
+Tu carrito está vacío.
+</p>
+
+</div>
+
+<div class="total">
+
+Total: Bs.
+<span id="total">0</span>
+
+</div>
+
+<br>
+
+<button
+class="boton-principal"
+onclick="finalizarCompra()">
+
+Finalizar compra
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================
+     CONTACTO
+===================================== -->
+
+<section class="seccion contacto" id="contacto">
+
+<h2 class="titulo-seccion">
+    📞 Contacto
+</h2>
+
+<p>📍 Sucre - Bolivia</p>
+
+<p>📱 Teléfono: +591 71155479</p>
+
+<p>📧 ventas@electrodomesticos.com</p>
+
+<p>
+    🕐 Atención: Lunes a sábado
+</p>
+
+</section>
+
+
+
+<!-- =====================================
+     PIE DE PÁGINA
+===================================== -->
+
+<footer>
+
+<h2>
+    🛒 Venta de Electrodomésticos
+</h2>
+
+<p>
+    Calidad, confianza y tecnología para tu hogar.
+</p>
+
+<p>
+    © 2026 Venta de Electrodomésticos
+</p>
+
+<p>
+    Todos los derechos reservados.
+</p>
+
+</footer>
+
+
+
+<!-- =====================================
+     JAVASCRIPT
+===================================== -->
+
+<script>
+
+let carrito = [];
+
+let total = 0;
+
+
+/* ==============================
+   AGREGAR AL CARRITO
+================================ */
+
+function agregarCarrito(nombre, precio) {
+
+    carrito.push({
+        nombre: nombre,
+        precio: precio
+    });
+
+    total += precio;
+
+    mostrarCarrito();
+
+    alert(
+        nombre +
+        "
